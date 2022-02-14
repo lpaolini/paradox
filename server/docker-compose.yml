@@ -1,0 +1,15 @@
+version: "3.9"
+
+services:
+  paradox:
+    build:
+      context: .
+      dockerfile: ./Dockerfile
+    image: "${DOCKER_REGISTRY_HOST:-localhost}/lpaolini/paradox:${VERSION:-latest}"
+    container_name: paradox
+    init: true
+    volumes:
+      - "./paradox:/paradox/config"
+    deploy:
+      restart_policy:
+        condition: on-failure

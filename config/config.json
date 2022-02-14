@@ -1,0 +1,17 @@
+{
+    "serial": {
+        "dummy": true,
+        "port": "/dev/ttyUSB0",
+        "baudRate": 57600
+    },
+    "server": {
+        "port": "10443",
+        "ssl": {
+            "key": "config/ssl/localhost.key",
+            "cert": "config/ssl/localhost.crt"
+        }
+    },
+    "notify": {
+      "to": "lookap.alarm@gmail.com"
+    }
+}
