@@ -23,13 +23,13 @@ ARG DIR=/paradox
 
 USER node 
 
-ADD --chown=node:node package.json $DIR/
-# ADD package-lock.json $DIR/
+ADD --chown=node:node package.json ${DIR}/
+# ADD package-lock.json ${DIR}/
 
-WORKDIR $DIR
+WORKDIR ${DIR}
 RUN npm install
 
-ADD --chown=node:node src $DIR/src/
+ADD --chown=node:node src ${DIR}/src/
 
 # CMD sleep 1d
 
