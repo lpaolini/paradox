@@ -21,13 +21,22 @@ EXPOSE 10443
 
 ARG DIR=/paradox
 
-USER node 
+RUN apk --no-cache add --virtual native-deps g++ gcc libgcc libstdc++ linux-headers make python3
 
 ADD --chown=node:node package.json ${DIR}/
 # ADD package-lock.json ${DIR}/
 
 WORKDIR ${DIR}
-RUN npm install
+
+RUN npm install --quiet node-gyp -g
+
+USER node
+
+RUN npm install --quiet
+
+# RUN apk del native-deps
+
+# RUN npm install
 
 ADD --chown=node:node src ${DIR}/src/
 
