@@ -1,4 +1,4 @@
-FROM node:17-bullseye
+FROM node:17-alpine
 
 EXPOSE 10443
 
